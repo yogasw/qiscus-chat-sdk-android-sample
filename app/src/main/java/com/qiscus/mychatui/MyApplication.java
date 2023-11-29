@@ -40,7 +40,7 @@ public class MyApplication extends MultiDexApplication {
         String baseUrlSDK = System.getenv("BASE_URL_SDK");
         String brokerLBUrl = System.getenv("BROKER_LB_URL");
 
-        QiscusCore.setupWithCustomServer(this, appId, baseUrlSDK, brokerLBUrl);
+        QiscusCore.setupWithCustomServer(getApplication(), appId, baseUrlSDK, brokerLBUrl);
 
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
