@@ -37,11 +37,10 @@ public class MyApplication extends MultiDexApplication {
         Nirmana.init(this);
 
         String appId = System.getenv("APP_ID");
-        String baseUrlSDK = System.getenv("BASE_URL_SDK");
-        String brokerLBUrl = System.getenv("BROKER_LB_URL");
+        String baseUrl = System.getenv("BASE_URL");
+        String brokerUrl = System.getenv("BROKER_URL");
 
-        QiscusCore.setupWithCustomServer(instance, appId, baseUrlSDK, brokerLBUrl,"");
-
+        QiscusCore.setupWithCustomServer(instance, appId, baseUrl, brokerUrl);
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
                 .setNotificationListener(PushNotificationUtil::showNotification)
