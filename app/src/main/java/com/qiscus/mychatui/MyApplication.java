@@ -36,7 +36,7 @@ public class MyApplication extends MultiDexApplication {
         component = new AppComponent(this);
 
         Nirmana.init(this);
-        QiscusCore.initWithCustomServer(this, System.getenv("APP_ID"), System.getenv("BASE_URL_SDK"), System.getenv("BROKER_LB_URL"));
+        QiscusCore.setupWithCustomServer(this, System.getenv("APP_ID"), System.getenv("BASE_URL_SDK"), System.getenv("BROKER_LB_URL"));
 
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
