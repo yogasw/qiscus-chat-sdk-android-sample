@@ -6,7 +6,7 @@ import androidx.multidex.MultiDexApplication;
 import com.qiscus.jupuk.Jupuk;
 import com.qiscus.mychatui.util.PushNotificationUtil;
 import com.qiscus.nirmana.Nirmana;
-import com.qiscus.sdk.Qiscus;
+import com.qiscus.sdk.chat.core.QiscusCore;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.one.EmojiOneProvider;
 
@@ -41,7 +41,7 @@ public class MyApplication extends MultiDexApplication {
         String brokerUrl = System.getenv("BROKER_URL");
         String brokerLBUrl = System.getenv("BROKER_LB_URL");
 
-        QiscusCore.setupWithCustomServer(instance,appId,baseUrl,brokerUrl,brokerLBUrl);
+        QiscusCore.setupWithCustomServer(instance,appId,baseUrl,brokerUrl,null);
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
                 .setNotificationListener(PushNotificationUtil::showNotification)
