@@ -41,7 +41,7 @@ public class MyApplication extends MultiDexApplication {
         String brokerUrl = System.getenv("BROKER_URL");
         String brokerLBUrl = System.getenv("BROKER_LB_URL");
 
-        QiscusCore.setupWithCustomServer(instance,appId,baseUrl,null,null);
+        QiscusCore.setupWithCustomServer(thie,appId,baseUrl,null,null);
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
                 .setNotificationListener(PushNotificationUtil::showNotification)
