@@ -1,6 +1,7 @@
 package com.qiscus.mychatui;
 
 
+import android.util.Log;
 import androidx.multidex.MultiDexApplication;
 
 import com.qiscus.jupuk.Jupuk;
@@ -38,10 +39,17 @@ public class MyApplication extends MultiDexApplication {
 
         String appId = System.getenv("APP_ID");
         String baseUrl = System.getenv("BASE_URL");
-        String brokerUrl = System.getenv("BROKER_URL");
-        String brokerLBUrl = System.getenv("BROKER_LB_URL");
+        if (appId == null) {
+            appId = "sdksample";
+        }
+        if (baseUrl == null) {
+            baseUrl = "https://api.qiscus.com";
+        }
 
-        QiscusCore.setupWithCustomServer(this,appId,baseUrl,null,null);
+        Log.d("Qiscus", "Using app id: " + appId);
+        Log.d("Qiscus", "Using base url: " + baseUrl);
+
+        QiscusCore.setupWithCustomServer(this, appId, baseUrl, null, null);
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
                 .setNotificationListener(PushNotificationUtil::showNotification)
