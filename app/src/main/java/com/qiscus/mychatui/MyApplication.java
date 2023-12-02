@@ -36,20 +36,7 @@ public class MyApplication extends MultiDexApplication {
         instance = this;
         component = new AppComponent(this);
         Nirmana.init(this);
-
-        String appId = System.getenv("APP_ID");
-        String baseUrl = System.getenv("BASE_URL");
-        if (appId == null) {
-            appId = "sdksample";
-        }
-        if (baseUrl == null) {
-            baseUrl = "https://api.qiscus.com";
-        }
-
-        Log.d("Qiscus", "Using app id: " + appId);
-        Log.d("Qiscus", "Using base url: " + baseUrl);
-
-        QiscusCore.setupWithCustomServer(this, appId, baseUrl, null, null);
+        QiscusCore.setupWithCustomServer(this, BuildConfig.QISCUS_SDK_APP_ID, BuildConfig.QISCUS_SDK_BASE_URL, null, null);
         QiscusCore.getChatConfig()
                 .enableDebugMode(true)
                 .setNotificationListener(PushNotificationUtil::showNotification)

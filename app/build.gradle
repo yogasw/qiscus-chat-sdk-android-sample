@@ -32,6 +32,7 @@ android {
 
         buildTypes.each {
             it.buildConfigField("String", "QISCUS_SDK_APP_ID", QISCUS_SDK_APP_ID)
+            it.buildConfigField("String", "QISCUS_SDK_BASE_URL", QISCUS_SDK_BASE_URL)
         }
     }
     compileOptions {
@@ -75,7 +76,7 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
    // implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    
+
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.browser:browser:1.4.0'
     testImplementation 'junit:junit:4.12'

@@ -39,6 +39,10 @@ jobs:
           distribution: 'oracle' # See 'Supported distributions' for available options
           java-version: '17'
           cache: 'gradle'
+      - name: Get environment variables
+        id: env
+        run: |
+          env | awk -F= '{print $1"="$2}' >> gradle.properties
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
@@ -63,3 +67,4 @@ jobs:
           name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) debug generated
           path: ${{ env.main_project_module }}/build/outputs/apk/debug/
           retention-days: 1
+
